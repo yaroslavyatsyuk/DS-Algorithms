@@ -1,19 +1,22 @@
 package com.yyatsiuk.divide_and_conquer;
 
-import java.io.IOException;
+import java.util.Arrays;
 
 public class QuickSort {
 
-    private static long counter = 0;
+    private static long inversions = 0;
 
-    public static void main(String[] args) throws IOException {
-
+    public static void main(String[] args) {
+        int[] ints = {5, 1, 8, 11, 3, 21, 41, 101, 1, 2, 3};
+        quickSort(ints, 0, 10);
+        System.out.println(Arrays.toString(ints));
+        System.out.println(inversions);
     }
 
     private static void quickSort(int[] arr, int lo, int hi) {
         if (lo >= hi) return;
 
-        counter += (hi - lo);
+        inversions += (hi - lo);
         int pivot = getPivot(lo, hi, arr);
         int tmp = arr[lo];
         arr[lo] = arr[pivot];
@@ -25,6 +28,7 @@ public class QuickSort {
 
     }
 
+    // choose the best pivot
     private static int getPivot(int lo, int hi, int[] arr) {
         int mid = lo + (hi - lo) / 2;
         int pivot;
