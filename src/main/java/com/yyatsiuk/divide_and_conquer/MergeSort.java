@@ -1,9 +1,13 @@
 package com.yyatsiuk.divide_and_conquer;
 
+import java.util.Arrays;
+
 public class MergeSort {
 
     public static void main(String[] args) {
-
+        int[] ints = {5, 1, 8, 11, 3, 112, 1, 2, 3};
+        mergeSort(ints);
+        System.out.println(Arrays.toString(ints));
     }
 
     private static int[] mergeSort(int[] arr) {
@@ -24,7 +28,7 @@ public class MergeSort {
 
     private static int[] merge(int[] arr1, int[] arr2, int[] result) {
         int i = 0;
-        int j = 1;
+        int j = 0;
         int index = 0;
 
         while (true) {
