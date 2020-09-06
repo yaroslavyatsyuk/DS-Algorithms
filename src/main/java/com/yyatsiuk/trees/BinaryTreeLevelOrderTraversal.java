@@ -9,17 +9,6 @@ import java.util.Queue;
  * Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
  */
 public class BinaryTreeLevelOrderTraversal {
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        public TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
 
     private static List<List<Integer>> levelOrder(TreeNode root) {
         if (root == null) {
@@ -36,15 +25,15 @@ public class BinaryTreeLevelOrderTraversal {
 
         while (!queue.isEmpty()) {
             TreeNode node = queue.remove();
-            level.add(node.val);
+            level.add(node.getVal());
 
-            if (node.left != null) {
-                queue.add(node.left);
+            if (node.getLeft() != null) {
+                queue.add(node.getLeft());
                 nextLevelElemCount++;
             }
 
-            if (node.right != null) {
-                queue.add(node.right);
+            if (node.getRight() != null) {
+                queue.add(node.getRight());
                 nextLevelElemCount++;
             }
 
